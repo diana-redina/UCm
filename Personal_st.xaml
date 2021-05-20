@@ -1,0 +1,85 @@
+﻿<Page x:Class="UCm.Personal_st"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UCm"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="Personal_st">
+
+    <Grid Background="WhiteSmoke">
+        <WrapPanel Name="WP_persona"  Orientation="Vertical" HorizontalAlignment="Left" Height="408" Margin="43,81,0,0" VerticalAlignment="Top" Width="382">
+            <TextBlock Name="TextBox_email_st"  Height="35" Width="374" FontSize="20" />
+            <TextBlock Name="TextBox_Sur_st" Height="35" Width="374" FontSize="20"  />
+            <TextBlock Name="TextBox_Name_st" Height="35" Width="374" FontSize="20"/>
+            <TextBlock Name="TextBox_Otchestvo_st"  Height="35" Width="374" FontSize="20"/>
+            <TextBlock Name="TextBox_Nomer_st" Height="35" Width="374" FontSize="20"/>
+            <PasswordBox Name="PasswordBox_1_st" materialDesign:HintAssist.Hint="Введите старый пароль" Height="35" Width="374" FontSize="20"/>
+            <PasswordBox Name="PasswordBox_2_st" materialDesign:HintAssist.Hint="Введите пароль"  Height="35" Width="374" FontSize="20"/>
+            <TextBlock Name="TB_ser_p_reg_st" Height="35" Width="374" FontSize="20"/>
+            <TextBlock Name="TB_nom_p_reg_st" Height="35" Width="374" FontSize="20"/>
+            <Button Background="Black" Content="Изменить пароль" Height="33" Width="163" Click="Button_izmena" />
+        </WrapPanel>
+
+        <RadioButton Content="Ваши личные данные" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Height="66" Width="253" Checked="Checked_persona"/>
+
+
+        <WrapPanel Name="WP_orders" HorizontalAlignment="Left" Height="447" Margin="416,95,0,0" VerticalAlignment="Top" Width="544">
+
+            <DataGrid CanUserAddRows="False"  AutoGenerateColumns="False" x:Name="st_Grid" HorizontalAlignment="Left"  Margin="20,0,0,0" VerticalAlignment="Top" Width="450" >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Номер записи">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label    Content="{Binding Order_Number}"   Background="{x:Null}"  >
+
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Название">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label    Content="{Binding Title}"   Background="{x:Null}"  >
+
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Дата просмотра">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Transaction_Date}"   Background="{x:Null}"  >
+
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Цена">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Price}"   Background="{x:Null}"  >
+
+                                </Label>
+                            </DataTemplate>
+
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </WrapPanel>
+        <RadioButton Content="Записи" HorizontalAlignment="Left" Margin="595,24,0,0" VerticalAlignment="Top" Height="39" Width="221" Checked="RadioButton_orders"/>
+        <Button  HorizontalAlignment="Left" Margin="35,537,0,0" VerticalAlignment="Top" Width="115" Click="Button_back_in_option">
+            <materialDesign:PackIcon  Kind="ArrowLeft" Width="20" Height="20" />
+        </Button>
+        <Button Content="Выход" HorizontalAlignment="Left" Margin="848,24,0,0" VerticalAlignment="Top" Width="142" Click="Button_vihod2" Background="Black"/>
+
+
+    </Grid>
+</Page>

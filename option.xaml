@@ -1,0 +1,109 @@
+﻿<Page x:Class="UCm.option"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UCm"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="option">
+
+    <Grid Background="WhiteSmoke" >
+
+
+
+
+        <ComboBox  Name="Model_ComboBox"   DisplayMemberPath="Model" ItemsSource="{Binding ItemsForRoles}"  HorizontalAlignment="Left" Margin="138,107,0,0" VerticalAlignment="Top" Width="120"
+            SelectedValuePath="Model"
+            SelectedValue="{Binding Path=Model}">
+        </ComboBox>
+        <ComboBox  Name="Colour_ComboBox"   DisplayMemberPath="Colour" ItemsSource="{Binding ItemsForRoles}"  HorizontalAlignment="Left" Margin="138,302,0,0" VerticalAlignment="Top" Width="120"
+            SelectedValuePath="Colour"
+            SelectedValue="{Binding Path=Colour}">
+        </ComboBox>
+        <ComboBox  Name="Year_ComboBox"   DisplayMemberPath="Year_Of_Release" ItemsSource="{Binding ItemsForRoles}"  HorizontalAlignment="Left" Margin="138,172,0,0" VerticalAlignment="Top" Width="120"
+            SelectedValuePath="Year_Of_Release"
+            SelectedValue="{Binding Path=Year_Of_Release}">
+        </ComboBox>
+        <ComboBox  Name="Body_ComboBox"   DisplayMemberPath="Body_Type" ItemsSource="{Binding ItemsForRoles}"  HorizontalAlignment="Left" Margin="138,237,0,0" VerticalAlignment="Top" Width="120"
+            SelectedValuePath="Body_Type"
+            SelectedValue="{Binding Path=Body_Type}">
+        </ComboBox>
+        <TextBlock  HorizontalAlignment="Left" Margin="42,107,0,0" TextWrapping="Wrap" Text="Модель" VerticalAlignment="Top" Height="30" Width="100" FontSize="13"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="42,172,0,0" TextWrapping="Wrap" Text="Год Выпуска" VerticalAlignment="Top" Height="30" Width="100" FontSize="13"/>
+        <TextBlock   HorizontalAlignment="Left" Margin="42,237,0,0" TextWrapping="Wrap" Text="Тип кузова" VerticalAlignment="Top" Height="30" Width="100" FontSize="13"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="42,302,0,0" TextWrapping="Wrap" Text="Цвет" VerticalAlignment="Top" Height="30" Width="100" FontSize="13"/>
+        <TextBox x:Name="TB_poisk_for_option"  HorizontalAlignment="Left" Height="32" Margin="305,25,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="386"  />
+        <DataGrid CanUserAddRows="False"  AutoGenerateColumns="False" x:Name="optionGrid" HorizontalAlignment="Left" Height="511" Margin="305,107,0,-18" VerticalAlignment="Top" Width="628" SelectionChanged="optionGrid_SelectionChanged" >
+            <DataGrid.Columns>
+
+
+
+                <DataGridTemplateColumn Header="Название">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Cursor="Hand" Uid="{Binding Vehicle_Code}" Tag="{Binding Stamp_Code}" Content="{Binding Title}"  Height="60" Background="{x:Null}" MouseDoubleClick="Title_click"  >
+
+                            </Label>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Трансмиссия">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Completeness}"  Height="60" Background="{x:Null}"  >
+
+                            </Label>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Изображение">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Uid="{Binding Vehicle_Code}" Tag="{Binding Stamp_Code}" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_in_info" >
+                                <Image Source="{Binding Picture}"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+
+                <DataGridTemplateColumn Header="Цена">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Price}"  Height="60" Background="{x:Null}"  >
+
+                            </Label>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Запись на просмотр">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Zapis_click" Background="Black" Uid="{Binding Vehicle_Code}">
+                                <materialDesign:PackIcon Kind="CarArrowRight"  />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Background="Black" Content="Показать" HorizontalAlignment="Left" Margin="42,362,0,0" VerticalAlignment="Top" Width="91" Click="Poisk_click" RenderTransformOrigin="-0.187,0.5"/>
+        <Button  Background="Black" HorizontalAlignment="Left" Margin="898,25,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.72,0.031" Click="Button_option_back_BS_Click">
+            <materialDesign:PackIcon  Kind="ArrowRight" Width="20" Height="20" />
+        </Button>
+        <Button Background="Black" x:Name="Button_Clear_option_filtr" Content="Очистить" HorizontalAlignment="Left" Margin="165,362,0,0" VerticalAlignment="Top" Width="93" RenderTransformOrigin="-0.164,0.625" Click="Button_Clear_option_filtr_Click"/>
+        <Button Background="Black" x:Name="Button_poisk_for_poisk"  HorizontalAlignment="Left" Margin="696,25,0,0" VerticalAlignment="Top" Width="53" RenderTransformOrigin="-0.004,-0.688" Click="Button_poisk_for_poisk_Click">
+            <materialDesign:PackIcon Kind="Magnify" />
+        </Button>
+        <Button Background="Black" Content="Личный кабинет" HorizontalAlignment="Left" Margin="42,431,0,0" VerticalAlignment="Top" Width="216" Height="46" Click="Button_from_option_in_kabinet"/>
+        <Button Background="Black" Content="Выход" HorizontalAlignment="Left" Margin="42,508,0,0" VerticalAlignment="Top" Width="216" Height="42" Click="Button_vihod"/>
+    </Grid>
+</Page>

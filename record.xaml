@@ -1,0 +1,24 @@
+﻿<Page x:Class="UCm.record"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UCm"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="record">
+
+    <Grid Background="WhiteSmoke">
+        <Image Source="C:\img for kyrsovay\2Label.PNG" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="500"/>
+        <TextBlock Foreground="WhiteSmoke" HorizontalAlignment="Left" Margin="314,14,0,0" TextWrapping="Wrap" Text="Запись н" VerticalAlignment="Top" Height="60" Width="191" FontSize="45" FontFamily="Myanmar Text"/>
+        <TextBlock HorizontalAlignment="Left" Margin="505,14,0,0" TextWrapping="Wrap" Text="а просмотр" VerticalAlignment="Top" Height="60" Width="425" FontSize="45" FontFamily="Myanmar Text"/>
+
+        <Button Background="Black" Content="Подтвердить" HorizontalAlignment="Left" Margin="667,482,0,0" VerticalAlignment="Top" Width="151" Height="44" Click="Button_Podtverdit_click"/>
+        <Button   HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.533,-0.917" Click="Button_back_record" >
+            <materialDesign:PackIcon  Kind="ArrowLeft" Width="20" Height="20" />
+        </Button>
+        <DatePicker Name="Transaction_Date" HorizontalAlignment="Left" Margin="758,399,0,0" VerticalAlignment="Top" Height="43" Width="172" RenderTransformOrigin="1.779,1.178" FontSize="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="603,403,0,0" TextWrapping="Wrap" Text="Выберите дату" VerticalAlignment="Top" Height="43" Width="149" FontSize="22" RenderTransformOrigin="1.087,0.473"/>
+    </Grid>
+</Page>

@@ -1,0 +1,98 @@
+﻿<Page x:Class="UCm.for_rab_2"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UCm"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="for_rab_2">
+
+    <Grid Background="WhiteSmoke">
+        <WrapPanel Name="WP_rab"  HorizontalAlignment="Left" Height="437" Margin="54,71,0,0" VerticalAlignment="Top" Width="915">
+
+
+            <DataGrid CanUserDeleteRows="True" CanUserAddRows="False" GridLinesVisibility="All"  AutoGenerateColumns="False" Name="rab2_Grid" HorizontalAlignment="Left"  Margin="20,0,0,0" VerticalAlignment="Top" Width="862"  >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Номер записи">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label    Content="{Binding Order_Number}"   Background="{x:Null}"  >
+
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Название">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label    Content="{Binding Title}"   Background="{x:Null}"  >
+
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Дата просмотра">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Transaction_Date}"   Background="{x:Null}"  >
+
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Цена">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Price}"   Background="{x:Null}"  >
+
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Email">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label    Content="{Binding Email}"   Background="{x:Null}"  >
+
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Отменить запись" Uid="{Binding Order_Number}"  Background="Black"  Click="Button_delete" Tag="{Binding}" >
+
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Документ">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Документ купли-продажи" Background="Black"  Click="Button_doc" Uid="{Binding Order_Number}" Tag="{Binding Title }" >
+
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </WrapPanel>
+        <Button Background="Black" HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top" Width="99" Height="38" Click="Button_back_rab">
+            <materialDesign:PackIcon  Kind="ArrowLeft" Width="20" Height="20" />
+            </Button>
+
+    </Grid>
+</Page>
